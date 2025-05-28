@@ -2,9 +2,13 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const connection = require('./db');
 require('dotenv').config();
+const cors = require('cors');
+
 
 const app = express();
 app.use(express.json());
+app.use(cors()); // Permite requisições de qualquer origem
+
 
 //Rota pública
 app.get('/', (req, res) => {
